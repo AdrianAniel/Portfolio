@@ -1,103 +1,119 @@
-/* fuentes */
+/* Importa la fuente Roboto de Google Fonts, especificando pesos de 400 y 700 */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
-/* variables */
+/* Define variables para colores y gradientes que se usarán en todo el sitio */
 :root {
-    ---navColor: #1f1f1f;
-    ---navColorModal: #303030;
-    --bgBody: linear-gradient(#1d303a, #24253e);
-    --sectionGradient: linear-gradient(to top, #2e2e2e, #1f1f1f);
+    ---navColor: #1f1f1f; /* Color de fondo para la barra de navegación */
+    ---navColorModal: #303030; /* Color de fondo para modales */
+    --bgBody: linear-gradient(#1d303a, #24253e); /* Gradient de fondo para el cuerpo */
+    --sectionGradient: linear-gradient(to top, #2e2e2e, #1f1f1f); /* Gradient para secciones */
 }
 
-/*Estilos generales y reutilizables*/
+/* Configura el modelo de caja para que todos los elementos tengan box-sizing: border-box */
 html {
     box-sizing: border-box;
-    animation-fill-mode: forwards;
-    scroll-padding: 55px;
-    font-family: "Roboto", sans-serif;
+    animation-fill-mode: forwards; /* Permite que las animaciones terminen en el estado final */
+    scroll-padding: 55px; /* Ajusta el padding del scroll para evitar desplazarse sobre contenido oculto */
+    font-family: "Roboto", sans-serif; /* Aplica la fuente Roboto a todo el documento */
 }
 
+/* Establece el fondo del cuerpo usando la variable --bgBody */
 body {
     background: var(--bgBody);
 }
 
+/* Clase para elementos que deben tener transparencia inicial */
 .w--opacity {
     opacity: 0;
 }
 
+/* Clase para elementos que deben animarse con una transición de opacidad */
 .wellcome--opacity {
     animation-name: bodyOpacity;
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
 
+/* Alinea los elementos de lista con cuadrados */
 ul li {
     list-style-type: square;
 }
 
+/* Establece un ancho máximo para el contenedor principal */
 .contenedor__principal {
     width: 75%;
 }
 
+/* Estilo para el contenido de los modales */
 .modal__content--border {
     border: 1px solid rgb(81, 81, 81);
     border-radius: 15px;
 }
 
+/* Alinea el texto dentro de los párrafos en los cuerpos de los modales */
 .modal__body--bg > p {
     text-align: justify;
 }
 
+/* Establece un color de fondo para los cuerpos de los modales */
 .modal__body--bg {
     background-color: #f1f1f1;
 }
 
+/* Estilo para las experiencias mostradas en artículos */
 .article__experiencia {
     background: #23343d33;
     border-radius: 5px;
     border: 1px solid #2e4e5ed8;
 }
 
+/* Establece colores de fondo para los encabezados y pies de pie de los modales */
 .modal__header--bg,
 .modal__footer--bg {
     background-color: var(---navColorModal);
 }
 
-/* Estilos */
-
+/* Establece el color de fondo y posicionamiento de la barra de navegación */
 nav {
     top: 0;
     background-color: var(---navColor);
     z-index: 100;
 }
 
+/* Cambia el cursor a puntero cuando se pasa el mouse sobre los íconos de navegación */
 .nav_icon .nav_enlace_icon {
     cursor: pointer;
 }
 
+/* Establece la altura y el margen de las secciones, además de aplicar un gradiente de fondo */
 .section {
     height: calc(100vh - 55px);
     margin-top: 55px;
     background: var(--sectionGradient);
 }
 
+/* Asegura que los contenidos flexibles ocupen todo el espacio disponible */
 .section .section__flex {
     height: 100%;
 }
 
+/* Ajusta el ancho de ciertos elementos según su contenido */
 .acercade .contacto,
 .habilidades .proyectos {
     width: max-content;
 }
 
+/* Aplica un gradiente de fondo a las habilidades */
 .habilidades {
     background: var(--sectionGradient);
 }
 
+/* Posicionamiento absoluto para elementos dentro de las experiencias */
 .article__experiencia {
     position: relative;
 }
 
+/* Oculta elementos absolutos por defecto y los muestra al pasar el mouse sobre la experiencia */
 .article__experiencia > span,
 .article__experiencia > button,
 .article__experiencia .spinner {
@@ -105,6 +121,7 @@ nav {
     display: none;
 }
 
+/* Posicionamiento y estilo de texto para el span dentro de las experiencias */
 .article__experiencia > span {
     position: absolute;
     top: 10%;
@@ -114,45 +131,51 @@ nav {
     font-size: 20px;
 }
 
+/* Posicionamiento y estilo de botón dentro de las experiencias */
 .article__experiencia > button {
     position: absolute;
     bottom: 10%;
     right: 50%;
     transform: translateX(50%);
 }
+
+/* Posicionamiento del spinner dentro de las experiencias */
 .article__experiencia .spinner {
     position: absolute;
     left: 20px;
     top: 20px;
 }
 
+/* Muestra elementos absolutos y cambia la opacidad de las imágenes al pasar el mouse sobre las experiencias */
 .article__experiencia:hover > span,
 .article__experiencia:hover > button,
 .article__experiencia .spinner {
     display: block;
     text-align: center;
 }
-
 .article__experiencia:hover .imagen_referencia > img {
     opacity: 0.4;
     transition: opacity 0.25s;
 }
 
+/* Establece el alto y el color de fondo para el carrusel personalizado */
 .custom__carousel {
     height: 450px;
     background-color: var(---navColorModal);
 }
 
+/* Establece el color de fondo para el footer */
 .footer {
     background-color: var(---navColor);
 }
 
-/* spinner (touch) */
+/* Estilo para el spinner de carga */
 .spinner {
     width: 50px;
     height: 50px;
 }
 
+/* Animación para el spinner de carga */
 .double-bounce1,
 .double-bounce2 {
     width: 100%;
@@ -174,11 +197,13 @@ nav {
 }
 
 /* clases aplicadas desde java script */
+/* Transición de opacidad para elementos seleccionados dinámicamente */
 .opacityElement {
     transition: opacity 2.3s;
 }
 
 /* media querys */
+/* Estilos adaptativos para pantallas pequeñas */
 @media screen and (max-width: 991.98px) {
     .contenedor__principal {
         width: 100%;
@@ -209,33 +234,34 @@ nav {
     }
 }
 
-/* animaciones */
+/* Sección de animaciones */
 /* efecto de opacidad al iniciar la pagina */
 @keyframes bodyOpacity {
     to {
-        opacity: 1;
+        opacity: 1; /* Al finalizar la animación, el elemento alcanza una opacidad completa */
     }
 }
 
-/* animacion del spinner */
+/* Animación del spinner (bucle infinito) */
 @-webkit-keyframes sk-bounce {
     0%,
     100% {
-        -webkit-transform: scale(0);
+        -webkit-transform: scale(0); /* Inicio y fin de la animación con el spinner reducido a escala 0 */
     }
     50% {
-        -webkit-transform: scale(1);
+        -webkit-transform: scale(1); /* Medio de la animación, el spinner está a su tamaño original */
     }
 }
 
+/* La misma animación pero sin prefijo para compatibilidad con navegadores más antiguos */
 @keyframes sk-bounce {
     0%,
     100% {
-        transform: scale(0);
-        -webkit-transform: scale(0);
+        transform: scale(0); /* Inicio y fin de la animación con el spinner reducido a escala 0 */
+        -webkit-transform: scale(0); /* Para navegadores basados en WebKit */
     }
     50% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
+        transform: scale(1); /* Medio de la animación, el spinner está a su tamaño original */
+        -webkit-transform: scale(1); /* Para navegadores basados en WebKit */
     }
 }
